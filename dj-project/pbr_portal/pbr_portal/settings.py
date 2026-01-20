@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "dashboard",
+    "accounts",
+    'crispy_forms',             # Add this
+    'crispy_bootstrap5'
 ]
 
 MIDDLEWARE = [
@@ -55,7 +58,7 @@ ROOT_URLCONF = "pbr_portal.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ["templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -116,3 +119,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "static/"
+# settings.py
+
+# If a user is not logged in and tries to access dashboard, send them here:
+LOGIN_URL = 'login' 
+
+# If a user logs in successfully, send them here (default behavior):
+LOGIN_REDIRECT_URL = 'dashboard'
+
+# Add these lines anywhere at the bottom of the file
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootstrap5"
